@@ -4,7 +4,7 @@
       answers: [
           { label: 'cuatro', value: 4 },
           { label: 'cinco', value: 5 },
-          { label: 'seis', value: 6 },
+          { label: 'ocho', value: 8 },
           { label: 'siete', value: 7 },
       ],
       correct: 4
@@ -12,7 +12,7 @@
       name: 'tres',
       label: '3+3',
       answers: [
-          { label: 'cuatro', value: 4 },
+          { label: 'diez', value: 10 },
           { label: 'cinco', value: 5 },
           { label: 'seis', value: 6 },
           { label: 'siete', value: 7 },
@@ -49,51 +49,6 @@
       ],
       correct: 12
   }]
-
-  //Inicio Victor -----------------------------------------------------
-
-  function printQuestion(pregunta) {
-      let formBox = document.getElementById("formBox")
-      let formElement = document.createElement("form")
-      formElement.setAttribute("id", "formulario")
-      formBox.appendChild(formElement)
-
-      let fieldElement = document.createElement("fieldset")
-      fieldElement.setAttribute("id", "fieldset")
-      formElement.appendChild(fieldElement)
-
-      let legendElement = document.createElement("legend")
-      legendElement.setAttribute("id", "legend")
-      fieldElement.appendChild(legendElement)
-      let preguntaContent = document.createTextNode(pregunta.label)
-      legendElement.appendChild(preguntaContent)
-
-      for (let j = 0; j < pregunta.answers.length; j++) {
-          let inputElement = document.createElement("input")
-          inputElement.setAttribute("id", `input_${j}`)
-          inputElement.setAttribute("type", "radio")
-          inputElement.setAttribute("name", pregunta.answers[j].label)
-          fieldElement.appendChild(inputElement)
-
-          let labelElement = document.createElement("label")
-          labelElement.setAttribute("for", `for_${j}`)
-          let contenido = document.createTextNode(pregunta.answers[j].label)
-          labelElement.appendChild(contenido)
-          fieldElement.appendChild(labelElement)
-
-          let brElement = document.createElement("br")
-          fieldElement.appendChild(brElement)
-      }
-
-      let submitElement = document.createElement("input")
-      submitElement.setAttribute("id", "SendForm")
-      submitElement.setAttribute("type", "submit")
-      submitElement.setAttribute("value", "Comprobar")
-      formBox.appendChild(submitElement)
-  }
-
-  //fin Victor -----------------------------------------------------
-
 
   // inicio Juanma -----------------------------------------------------
 
@@ -135,67 +90,135 @@
   obtenerPreguntasAPI()
 
   let iterarPregunta = () => {
-      questions.forEach(question => {
+      if (contadorPreguntas < questions.length) {
+          if (contadorPreguntas != 0) {
+              document.getElementById(`formBox`).innerHTML = ""
+          }
 
-          printQuestion(question)
+          printQuestion(questions[contadorPreguntas], contadorPreguntas)
+              //   console.log(questions[contadorPreguntas].correct)
+          comprobarDatos(contadorPreguntas)
 
-          document.getElementById("quiz").addEventListener("submit", function(event) {
-              event.preventDefault()
-              let respuestas = Array.from(event.path[0])
+      } else {
+          console.log(`Se acabaron las preguntas`)
+          console.log(contadorRespuestas)
+              //METER LOS RESULTADOS EN EL LOCAL STORAGE
+          document.getElementById(`formBox`).innerHTML = ""
+              // PINTAR RESULTADOS
+      }
+  }
 
-              for (let i = 1; i < respuestas.length - 1; i++) {
-                  const resp = respuestas[i];
-                  if (resp.checked && resp.value == questions[0].correct) {
-                      console.log(`Correcta`)
-                      contadorRespuestas++
-                  }
+  let comprobarDatos = (i) => {
+      document.getElementById(`formulario${i}`).addEventListener("submit", function(event) {
+          event.preventDefault()
+          let respuestas = Array.from(event.path[0])
+
+          for (let i = 1; i < respuestas.length - 1; i++) {
+              const resp = respuestas[i];
+
+              if (resp.checked && resp.value == questions[contadorPreguntas].correct) {
+                  contadorRespuestas++
               }
-              contadorPreguntas++
-          })
+          }
 
+          contadorPreguntas++
+          iterarPregunta()
       })
   }
 
   // fin Juanma -----------------------------------------------------
 
+  //Inicio Victor -----------------------------------------------------
+
+  function printQuestion(pregunta, i) {
+      let formBox = document.getElementById("formBox")
+
+      let formElement = document.createElement("form")
+      formElement.setAttribute("id", `formulario${i}`)
+      formBox.appendChild(formElement)
+
+      let fieldElement = document.createElement("fieldset")
+      fieldElement.setAttribute("id", "fieldset")
+      formElement.appendChild(fieldElement)
+
+      let legendElement = document.createElement("legend")
+      legendElement.setAttribute("id", "legend")
+      let preguntaContent = document.createTextNode(pregunta.label)
+      legendElement.appendChild(preguntaContent)
+      fieldElement.appendChild(legendElement)
+
+      for (let j = 0; j < pregunta.answers.length; j++) {
+          let inputElement = document.createElement("input")
+          inputElement.setAttribute("id", `input${j}`)
+          inputElement.setAttribute("class", "switchInput")
+          inputElement.setAttribute("type", "radio")
+          inputElement.setAttribute("name", `nameQuestion`)
+          inputElement.setAttribute("value", pregunta.answers[j].value)
+          fieldElement.appendChild(inputElement)
+
+          let labelElement = document.createElement("label")
+          labelElement.setAttribute("class", "switch")
+          labelElement.setAttribute("for", `input${j}`)
+          let contenido = document.createTextNode(pregunta.answers[j].label)
+          labelElement.appendChild(contenido)
+          fieldElement.appendChild(labelElement)
+
+          let brElement = document.createElement("br")
+          fieldElement.appendChild(brElement)
+      }
+
+      let submitElement = document.createElement("input")
+      submitElement.setAttribute("id", "SendForm")
+      submitElement.setAttribute("type", "submit")
+      submitElement.setAttribute("value", "Comprobar!")
+      formElement.appendChild(submitElement)
+  }
+
+  function printQuestions() {
+      printQuestion(questions[contadorPreguntas])
+  }
+
+  //fin Victor -----------------------------------------------------
+
+
   // ============================= codigo inicial =============================== //
 
-  const resp = {
-      q5001: "pn",
-      q5002: [true, false, false],
-      q5003: 14,
-      q5004: [false, true, false],
-      q5005: "16Sem",
-      q5006: [true, true, false]
-  }
+  //   const resp = {
+  //       q5001: "pn",
+  //       q5002: [true, false, false],
+  //       q5003: 14,
+  //       q5004: [false, true, false],
+  //       q5005: "16Sem",
+  //       q5006: [true, true, false]
+  //   }
 
-  function campoRelleno(arr, index) {
-      if (document.querySelector(`#${arr[index]} p`)) {
-          document.querySelector(`#${arr[index]} p`).remove()
-      }
-  }
+  //   function campoRelleno(arr, index) {
+  //       if (document.querySelector(`#${arr[index]} p`)) {
+  //           document.querySelector(`#${arr[index]} p`).remove()
+  //       }
+  //   }
 
-  function campoVacio(arr, index) {
-      if (!document.querySelector(`#${arr[index]} p`)) {
-          let pElement = document.createElement("p");
-          let contenido = document.createTextNode("Por favor seleccione alguna respuesta");
-          pElement.appendChild(contenido);
-          document.querySelector(`#${arr[index]}`).appendChild(pElement);
-          let p = document.querySelector(`#${arr[index]} p`);
-          let attr = document.createAttribute("class");
-          attr.value = "campo_vacio";
-          p.setAttributeNode(attr);
-      }
-      document.getElementById(arr[index]).className = "default"
-  }
+  //   function campoVacio(arr, index) {
+  //       if (!document.querySelector(`#${arr[index]} p`)) {
+  //           let pElement = document.createElement("p");
+  //           let contenido = document.createTextNode("Por favor seleccione alguna respuesta");
+  //           pElement.appendChild(contenido);
+  //           document.querySelector(`#${arr[index]}`).appendChild(pElement);
+  //           let p = document.querySelector(`#${arr[index]} p`);
+  //           let attr = document.createAttribute("class");
+  //           attr.value = "campo_vacio";
+  //           p.setAttributeNode(attr);
+  //       }
+  //       document.getElementById(arr[index]).className = "default"
+  //   }
 
-  function correcto(arr, index) {
-      document.getElementById(arr[index]).className = "green"
-  }
+  //   function correcto(arr, index) {
+  //       document.getElementById(arr[index]).className = "green"
+  //   }
 
-  function incorrecto(arr, index) {
-      document.getElementById(arr[index]).className = "red"
-  }
+  //   function incorrecto(arr, index) {
+  //       document.getElementById(arr[index]).className = "red"
+  //   }
 
   //   document.getElementById("quiz").addEventListener("submit", function(event) {
 
@@ -234,6 +257,7 @@
   //               }
 
   //               // -------------------------------------------- NUMBER -------------------------------------------- //
+
 
   //               if (valResp[i].type == "number") {
   //                   if (!valResp[i].value) {
