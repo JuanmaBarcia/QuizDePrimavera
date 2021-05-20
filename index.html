@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <main>
+        <h1>Formulario nacionalidad española</h1>
+        <form id="quiz">
+            <fieldset id="q5001">
+                <legend>¿Qué cuerpo de seguridad gestiona la expedición del DNI?</legend>
+                <input type="radio" name="q5001" id="5001a" value="pn"><label for="5001a">La Policía
+                    Nacional</label><br>
+                <input type="radio" name="q5001" id="5001b" value="gc"><label for="5001b">La Guardia civil</label><br>
+                <input type="radio" name="q5001" id="5001c" value="pl"><label for="5001c">La Policía Local</label>
+            </fieldset><br>
+
+            <fieldset id="q5002">
+                <legend>¿Cuál es el documento que muestra el lugar de residencia del titular?</legend>
+                <input type="checkbox" name="q5002" id="5002a" value="v5002a"><label for="5002a">El certificado de
+                    empadronamiento</label><br>
+                <input type="checkbox" name="q5002" id="5002b" value="v5002b"><label for="5002b">La partida de
+                    nacimiento</label><br>
+                <input type="checkbox" name="q5002" id="5002c" value="v5002c"><label for="5002c">El carné de
+                    conducir.</label>
+            </fieldset><br>
+
+            <fieldset id="q5003">
+                <legend>¿A qué edad es obligatorio tener el DNI?</legend>
+                <input type="number" id="5003a" name="q5003" placeholder="Introduce edad">
+            </fieldset><br>
+
+            <fieldset id="q5004">
+                <legend>En los documentos oficiales de ciudadano español aparece normalmente el…</legend>
+                <input type="checkbox" id="q5004a" name="q5004" value="v5004a"><label for="q5004a">Estado
+                    civil</label><br>
+                <input type="checkbox" id="q5004b" name="q5004" value="v5004b"><label for="q5004b">Número de
+                    DNI.</label><br>
+                <input type="checkbox" id="q5004c" name="q5004" value="v5004c"><label for="q5004c">Número de Seguridad
+                    social.</label>
+            </fieldset><br>
+
+            <fieldset id="q5005">
+                <legend>En España la baja maternal es de…</legend>
+                <input type="radio" id="q5005a" name="q5005" value="20Sem"><label for="q5005a">20 semanas</label><br>
+                <input type="radio" id="q5005b" name="q5005" value="16Sem"><label for="q5005b">16 semanas</label><br>
+                <input type="radio" id="q5005c" name="q5005" value="18Sem"><label for="q5005c">18 semanas</label>
+            </fieldset><br>
+
+            <fieldset id="q5006">
+                <legend>¿Qué provincias estan en el este de España?</legend>
+                <label for="q5006">Selecciona las correctas</label><br>
+                <select id="q5006a" name="q5006" multiple="multiple">
+                    <option value="v5006a">Lleida</option>
+                    <option value="v5006b">Castellón</option>
+                    <option value="v5006c">Madrid</option>
+                </select>
+            </fieldset><br>
+
+            <input id="SendForm" name="SendForm" value="Comprobar respuestas" type="submit"><br>
+
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
