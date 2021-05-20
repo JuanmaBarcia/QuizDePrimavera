@@ -84,7 +84,7 @@
           questions.push(pregunta)
       });
 
-      console.log(questions)
+      //   console.log(questions)
       iterarPregunta()
   }
   obtenerPreguntasAPI()
