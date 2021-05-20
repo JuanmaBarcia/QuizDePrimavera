@@ -1,13 +1,4 @@
   const questions = [{
-      name: 'q5001',
-      label: '¿Qué cuerpo de seguridad gestiona la expedición del DNI?',
-      answers: [
-          { label: 'La Policía Nacional', value: "pn" },
-          { label: 'La Guardia civil', value: "gc" },
-          { label: 'La Policía Local', value: "pl" }
-      ],
-      correct: "pn"
-  }, {
       name: 'dos',
       label: '2+2',
       answers: [
@@ -59,6 +50,51 @@
       correct: 12
   }]
 
+  //Inicio Victor -----------------------------------------------------
+
+  function printQuestion(pregunta) {
+      let formBox = document.getElementById("formBox")
+      let formElement = document.createElement("form")
+      formElement.setAttribute("id", "formulario")
+      formBox.appendChild(formElement)
+
+      let fieldElement = document.createElement("fieldset")
+      fieldElement.setAttribute("id", "fieldset")
+      formElement.appendChild(fieldElement)
+
+      let legendElement = document.createElement("legend")
+      legendElement.setAttribute("id", "legend")
+      fieldElement.appendChild(legendElement)
+      let preguntaContent = document.createTextNode(pregunta.label)
+      legendElement.appendChild(preguntaContent)
+
+      for (let j = 0; j < pregunta.answers.length; j++) {
+          let inputElement = document.createElement("input")
+          inputElement.setAttribute("id", `input_${j}`)
+          inputElement.setAttribute("type", "radio")
+          inputElement.setAttribute("name", pregunta.answers[j].label)
+          fieldElement.appendChild(inputElement)
+
+          let labelElement = document.createElement("label")
+          labelElement.setAttribute("for", `for_${j}`)
+          let contenido = document.createTextNode(pregunta.answers[j].label)
+          labelElement.appendChild(contenido)
+          fieldElement.appendChild(labelElement)
+
+          let brElement = document.createElement("br")
+          fieldElement.appendChild(brElement)
+      }
+
+      let submitElement = document.createElement("input")
+      submitElement.setAttribute("id", "SendForm")
+      submitElement.setAttribute("type", "submit")
+      submitElement.setAttribute("value", "Comprobar")
+      formBox.appendChild(submitElement)
+  }
+
+  //fin Victor -----------------------------------------------------
+
+
   // inicio Juanma -----------------------------------------------------
 
   let contadorRespuestas = 0
@@ -100,7 +136,8 @@
 
   let iterarPregunta = () => {
       questions.forEach(question => {
-          console.log(question) //llamar a la funcion de pintar pregunta
+
+          printQuestion(question)
 
           document.getElementById("quiz").addEventListener("submit", function(event) {
               event.preventDefault()
@@ -118,7 +155,6 @@
 
       })
   }
-
 
   // fin Juanma -----------------------------------------------------
 
