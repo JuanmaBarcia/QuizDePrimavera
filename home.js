@@ -17,6 +17,9 @@ for (let i = 0; i < resultados.length; i++) {
     high:10,
     low: 0,
     showArea: false,
+    axisX:{
+        
+    },
     axisY: {
       onlyInteger: true,
       
