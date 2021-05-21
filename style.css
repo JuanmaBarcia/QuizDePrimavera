@@ -29,12 +29,12 @@ body {
 }
 
 main {
-    width: 100%;
+    width: 84%;
     padding: 1rem;
     border-radius: 1rem;
     background-color: var(--green3);
     font-size: 36px;
-    background-image: url(pngtree-hand-drawn-linear-style-question-mark-exclamation-mark-png-image_2326170.jpeg);
+    background-image: url(fondo.jpg);
     background-position: top;
     opacity: 0.8;
     position: absolute;
@@ -80,6 +80,8 @@ legend {
     
 }
 
+
+
 label {
     font-size: 0.8rem;
     margin-left: 0.5rem;
@@ -90,8 +92,21 @@ label {
 input {
     margin: 0.5rem 0;
     font-size: 0.8rem;
-
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 24px;
 }
+
 
 input[type="number"] {
     width: 95%;
@@ -119,9 +134,9 @@ option {
     padding: 1rem;
     font-size: 1.5rem;
     border-radius: 1rem;
-    border-color: black;
-    background-color: var(--green3);
-    color: var(--black);
+    border-color: var(--black);
+    background-color: var(--black);
+    color: var(--white);
     font-family: 'Acme', sans-serif;
     font-size: 24px;
 }
