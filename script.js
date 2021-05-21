@@ -58,64 +58,10 @@
       ],
       correct: "pn"
   }]
-////Inicio Victor////
-
-  function printQuestion(pregunta) {
-      console.log(pregunta)
-    let formBox = document.getElementById("formBox")
-    let formElement = document.createElement("form")
-    formElement.setAttribute("id", "formulario")
-    formBox.appendChild(formElement)
-    
-    let fieldElement = document.createElement("fieldset")
-    fieldElement.setAttribute("id","fieldset")
-    formElement.appendChild(fieldElement)
-    
-    let legendElement = document.createElement("legend")
-    legendElement.setAttribute("id", "legend")
-    fieldElement.appendChild(legendElement)
-    let preguntaContent = document.createTextNode(pregunta.label)
-    legendElement.appendChild(preguntaContent)
-    //for (let index = 0; index < questions.length; index++) {
-       for (let j = 0; j < questions[0].answers.length; j++) {
-        //console.log(questions[index].answers)
-        let inputElement = document.createElement("input")
-        inputElement.setAttribute("id", `input${j}`)
-        inputElement.setAttribute("class", "switchInput")
-        inputElement.setAttribute("type", "radio")
-        inputElement.setAttribute("name", questions[0].answers[j].label)
-        fieldElement.appendChild(inputElement)
-        let labelElement = document.createElement("label")
-        labelElement.setAttribute("class", "switch")
-        labelElement.setAttribute("for", "La Policía Nacional")
-        let contenido = document.createTextNode(questions[0].answers[j].label)
-        labelElement.appendChild(contenido)
-        let brElement = document.createElement("br")
-        fieldElement.appendChild(labelElement)
-        fieldElement.appendChild(brElement)
-       }
-        
-        //}
-        let submitElement = document.createElement("input")
-        submitElement.setAttribute("id", "SendForm")
-        submitElement.setAttribute("type", "submit")
-        submitElement.setAttribute("value", "Comprobar!")
-        formBox.appendChild(submitElement)
-  }
-  
-
-  function printQuestions(){
-    for (let i = 0; i < questions.length; i++) {
-        //console.log(questions[i].label);
-        //console.log(questions);
-        printQuestion(questions[i])
-    }
-}
-printQuestions()
 
   // ============================= codigo inicial =============================== //
 
-  /* const resp = {
+  const resp = {
       q5001: "pn",
       q5002: [true, false, false],
       q5003: 14,
@@ -246,4 +192,4 @@ printQuestions()
               }
           }
       }
-  }) */
+  })
