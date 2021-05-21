@@ -35,13 +35,13 @@ Diseño responsive, mobile first, semántica HTML5
 FASE 2: Lógica de JavaScript
 Adaptar nuestra app acorde a lo que vimos en clase
 
-proyectos-quiz-resurrected{
+# -HECHO- proyectos-quiz-resurrected{
 
-# -HECHO- Hacer que nuestra aplicación de Quiz imprima y corrija tantas preguntas como le pasemos, a través de una colección de # objetos.
+# -HECHO- Hacer que nuestra aplicación de Quiz imprima y corrija tantas preguntas como le pasemos, a través de una colección de objetos.
 
-Van a entrar en juego 2 funciones, printQuestions y printQuestion, y una colección de objetos, questions.
+# -HECHO- Van a entrar en juego 2 funciones, printQuestions y printQuestion, y una colección de objetos, questions.
 
-printQuestions recibe la colección de preguntas questions y devuelve el HTML con todas las preguntas.
+# -HECHO- printQuestions recibe la colección de preguntas questions y devuelve el HTML con todas las preguntas.
 # -HECHO- printQuestion recibe una pregunta y devuelve el HTML de esa pregunta.
 # -HECHO- questions es una colección con todas las preguntas.
 
@@ -69,9 +69,9 @@ printQuestions recibe la colección de preguntas questions y devuelve el HTML co
 
 # -HECHO- ¡Hora de montar el puzzle!
 
-Una vez llegado hasta aquí, tendrás todo lo necesario: printQuestions, printQuestion y tu colección de questions
+# -HECHO- Una vez llegado hasta aquí, tendrás todo lo necesario: printQuestions, printQuestion y tu colección de questions
 
-El funcionamiento es el siguiente: - printQuestions se ejecuta y toma como argumento questions. - Dentro de printQuestions iterarás sobre dichas questions e imprimirás cada una de ellas con printQuestion en cada iteración
+# -HECHO- El funcionamiento es el siguiente: - printQuestions se ejecuta y toma como argumento questions. - Dentro de printQuestions iterarás sobre dichas questions e imprimirás cada una de ellas con printQuestion en cada iteración
 
 # Premium
 
