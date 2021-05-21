@@ -52,76 +52,79 @@
 
   // inicio Juanma -----------------------------------------------------
 
-  let contadorRespuestas = 0
-  let contadorPreguntas = 0
+  let contadorRespuestas = 0 // acumulador para obtener el total de respuestas correctas
+  let contadorPreguntas = 0 // contador para poder iterar las preguntas
 
   let obtenerPreguntasAPI = async() => {
       let datos = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
       let res = await datos.json()
-      res.results.forEach((element, i) => {
+      res.results.forEach((element, i) => { // se iteran las preguntas devueltas por el fetch
           let pregunta = {
-              name: `pregunta_${i}`,
-              label: element.question,
-              correct: element.correct_answer
-          }
+                  name: `pregunta_${i}`,
+                  label: element.question,
+                  correct: element.correct_answer
+              } //se crea el objeto de la pregunta
 
           let respuestas = []
           element.incorrect_answers.forEach(element => {
-              let respuesta = {
-                  label: element,
-                  value: element
-              }
-              respuestas.push(respuesta)
-          })
+                  let respuesta = {
+                      label: element,
+                      value: element
+                  }
+                  respuestas.push(respuesta)
+              }) // se añaden las respuestas incorrectas a un array
 
-          let numRndm = Math.floor(Math.random() * respuestas.length)
+          let numRndm = Math.floor(Math.random() * respuestas.length) // se obtiene un numero random entre 0 y el numero de respuestas incorrectas
           respuestas.splice(numRndm, 0, {
-              label: element.correct_answer,
-              value: element.correct_answer
-          })
+                  label: element.correct_answer,
+                  value: element.correct_answer
+              }) // se añade la respuesta correcta en una posicion aleatoria del array respuestas
 
-          pregunta.answers = respuestas
-          questions.push(pregunta)
+          pregunta.answers = respuestas // se añaden las respuestas al objeto de la pregunta
+          questions.push(pregunta) // se añade la pregunta al array questions
       });
 
-      //   console.log(questions)
       iterarPregunta()
   }
-  obtenerPreguntasAPI()
+  obtenerPreguntasAPI() // PENDIENTE DE CAMBIO - DEBERIA DE LLAMARSE A ESTA FUNCION CUANDO SE HAGA CLICK EN EL BOTON DE "TAKE THE QUIZ"
 
   let iterarPregunta = () => {
-      if (contadorPreguntas < questions.length) {
-          if (contadorPreguntas != 0) {
+      if (contadorPreguntas < questions.length) { // se comprueba que en cada iteracion tengamos unas pregunta que hacer
+          if (contadorPreguntas != 0) { // si no es la primera pregunta se borra la pregunta anterior del DOM
               document.getElementById(`formBox`).innerHTML = ""
           }
 
-          printQuestion(questions[contadorPreguntas], contadorPreguntas)
+          printQuestion(questions[contadorPreguntas], contadorPreguntas) // se pinta la pregunta que corresponde a cada iteracion
               //   console.log(questions[contadorPreguntas].correct)
-          comprobarDatos(contadorPreguntas)
+          comprobarRespuestas(contadorPreguntas) // se llama al comprobador de las respuestas y se le pasa como parametro el indice de la pregunta en la que estamos
 
-      } else {
+      } else { // si no hay mas preguntas se ejecuta esto
           console.log(`Se acabaron las preguntas`)
           console.log(contadorRespuestas)
-              //METER LOS RESULTADOS EN EL LOCAL STORAGE
-          document.getElementById(`formBox`).innerHTML = ""
-              // PINTAR RESULTADOS
+
+          //METER LOS RESULTADOS EN EL LOCAL STORAGE
+
+          document.getElementById(`formBox`).innerHTML = "" // se borra la ultima pregunta
+
+          // PINTAR RESULTADOS
+
       }
   }
 
-  let comprobarDatos = (i) => {
-      document.getElementById(`formulario${i}`).addEventListener("submit", function(event) {
+  let comprobarRespuestas = (i) => {
+      document.getElementById(`formulario${i}`).addEventListener("submit", function(event) { // se añade un addEventListener diferente al submit de cada pregunta segun el indice que se le pasa en la llamada a la funcion
           event.preventDefault()
-          let respuestas = Array.from(event.path[0])
+          let respuestas = Array.from(event.path[0]) // se convierte en array la devolucion de datos del formulario
 
-          for (let i = 1; i < respuestas.length - 1; i++) {
+          for (let i = 1; i < respuestas.length - 1; i++) { // se itera el array de datos
               const resp = respuestas[i];
 
-              if (resp.checked && resp.value == questions[contadorPreguntas].correct) {
+              if (resp.checked && resp.value == questions[contadorPreguntas].correct) { // si la respuesta que esta marcada es igual a la respuesta correcta se suma uno al contadorRespuestas
                   contadorRespuestas++
               }
           }
 
-          contadorPreguntas++
+          contadorPreguntas++ // se suma uno al contador preguntas para poder pintar la siguiente pregunta
           iterarPregunta()
       })
   }
@@ -130,11 +133,11 @@
 
   //Inicio Victor -----------------------------------------------------
 
-  function printQuestion(pregunta, i) {
+  function printQuestion(pregunta, i) { // añadida i
       let formBox = document.getElementById("formBox")
 
       let formElement = document.createElement("form")
-      formElement.setAttribute("id", `formulario${i}`)
+      formElement.setAttribute("id", `formulario${i}`) //se crea una id diferente para poder borrar cada pregunta
       formBox.appendChild(formElement)
 
       let fieldElement = document.createElement("fieldset")
@@ -152,13 +155,13 @@
           inputElement.setAttribute("id", `input${j}`)
           inputElement.setAttribute("class", "switchInput")
           inputElement.setAttribute("type", "radio")
-          inputElement.setAttribute("name", `nameQuestion`)
-          inputElement.setAttribute("value", pregunta.answers[j].value)
+          inputElement.setAttribute("name", `nameQuestion`) // modificado name para que solo se pueda seleccionar una respuesta
+          inputElement.setAttribute("value", pregunta.answers[j].value) // añadido value para poder hacer la comprobacion de las respuestas correctas
           fieldElement.appendChild(inputElement)
 
           let labelElement = document.createElement("label")
           labelElement.setAttribute("class", "switch")
-          labelElement.setAttribute("for", `input${j}`)
+          labelElement.setAttribute("for", `input${j}`) // modificado el for para que coincida con el id del input y se pueda seleccionar la respuesta pinchando en el texto
           let contenido = document.createTextNode(pregunta.answers[j].label)
           labelElement.appendChild(contenido)
           fieldElement.appendChild(labelElement)
@@ -175,7 +178,11 @@
   }
 
   function printQuestions() {
-      printQuestion(questions[contadorPreguntas])
+      for (let i = 0; i < questions.length; i++) {
+          //console.log(questions[i].label);
+          //console.log(questions);
+          printQuestion(questions[i])
+      }
   }
 
   //fin Victor -----------------------------------------------------
