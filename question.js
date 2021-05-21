@@ -59,7 +59,7 @@ let iterarPregunta = () => {
         const hora = fecha.getHours()
         const minuto = () => fecha.getMinutes() < 10 ? "0" + fecha.getMinutes() : fecha.getMinutes()
 
-        const diaHora = `${dia}/${mes()}<br>${hora}:${minuto()}`
+        const diaHora = `${dia}/${mes()} - ${hora}:${minuto()}`
 
         const fechaRespuesta = { // se crea un objeto con la fecha/hora y respuestas acertadas
             fecha: diaHora,
