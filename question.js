@@ -68,6 +68,7 @@ let iterarPregunta = () => {
 
         arrResultados.push(fechaRespuesta) // se añade el objeto al array de resultados
         localStorage.setItem(`respuestas`, JSON.stringify(arrResultados)) // se actualiza la informacion en el loclStorage
+        localStorage.setItem(`numero de preguntas`, JSON.stringify(contadorPreguntas))
 
         location.href = "results.html"; // se redirige a la pagina de resultados
     }

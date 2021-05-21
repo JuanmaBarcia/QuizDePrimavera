@@ -18,6 +18,9 @@ for (let i = 0; i < ultimosresultados.length; i++) {
     high:10,
     low: 0,
     showArea: false,
+    axisX:{
+        
+    },
     axisY: {
       onlyInteger: true,
       
