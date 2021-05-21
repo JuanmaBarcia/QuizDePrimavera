@@ -109,6 +109,6 @@ Adaptar nuestra app acorde a lo que vimos en clase
 Mostrar en la Home con una gráfica los resultados de las últimas partidas jugadas (leer puntuaciones de LocalStorage). # Representar Fecha(eje X) vs Puntuación(eje Y)
 
 Ventanas
-home.html. Página de bienvenida + gráfica de últimos resultados
+# -HECHO- home.html. Página de bienvenida + gráfica de últimos resultados
 # -HECHO- question.html SPA. Página para renderizar las 10 distintas preguntas
 results.html Página para mostrar resultado del quiz
