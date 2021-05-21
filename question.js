@@ -12,7 +12,7 @@ let obtenerPreguntasAPI = async() => {
     let res = await datos.json()
     res.results.forEach((element, i) => { // se iteran las preguntas devueltas por el fetch
         let pregunta = {
-                name: `pregunta_${i}`,
+                name: `preguntaAPI_${i}`,
                 label: element.question,
                 correct: element.correct_answer
             } //se crea el objeto de la pregunta
@@ -91,6 +91,16 @@ let comprobarRespuestas = (i) => {
     })
 }
 
+function correcto(id) {
+    document.getElementById(id).className = "green"
+    document.querySelector(`label[for="${id}"]`).className = "green"
+}
+
+function incorrecto(id) {
+    document.getElementById(id).className = "red"
+    document.querySelector(`label[for="${id}"]`).className = "red"
+}
+
 // fin Juanma -----------------------------------------------------
 
 //Inicio Victor -----------------------------------------------------
@@ -117,7 +127,7 @@ function printQuestion(pregunta, i) { // añadida i
         inputElement.setAttribute("id", `input${j}`)
         inputElement.setAttribute("class", "switchInput")
         inputElement.setAttribute("type", "radio")
-        inputElement.setAttribute("name", `nameQuestion`) // modificado name para que solo se pueda seleccionar una respuesta
+        inputElement.setAttribute("name", pregunta.name) // modificado name para que solo se pueda seleccionar una respuesta
         inputElement.setAttribute("value", pregunta.answers[j].value) // añadido value para poder hacer la comprobacion de las respuestas correctas
         fieldElement.appendChild(inputElement)
 
@@ -137,14 +147,6 @@ function printQuestion(pregunta, i) { // añadida i
     submitElement.setAttribute("type", "submit")
     submitElement.setAttribute("value", "Comprobar!")
     formElement.appendChild(submitElement)
-}
-
-function printQuestions() {
-    for (let i = 0; i < questions.length; i++) {
-        //console.log(questions[i].label);
-        //console.log(questions);
-        printQuestion(questions[i])
-    }
 }
 
 //fin Victor -----------------------------------------------------
