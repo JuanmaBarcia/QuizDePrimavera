@@ -1,51 +1,51 @@
 const questions = [{
-    name: 'dos',
-    label: '2+2',
+    name: 'uno',
+    label: '¿Cuál de estos títulos no tiene un Oscar a mejor película?',
     answers: [
-        { label: 'cuatro', value: 4 },
-        { label: 'cinco', value: 5 },
-        { label: 'ocho', value: 8 },
-        { label: 'siete', value: 7 },
+        { label: 'Argo', value: 1 },
+        { label: 'El resplandor', value: 2 },
+        { label: 'Infiltrados', value: 3 },
+        { label: 'Nomadland', value: 4 },
     ],
-    correct: 4
+    correct: 2
+}, {
+    name: 'dos',
+    label: '¿Cuál de estas mujeres acumula más nominaciones como mejor actriz?',
+    answers: [
+        { label: 'Meryl Streep', value: 1 },
+        { label: 'Katharine Hepburn', value: 2 },
+        { label: 'Bette Davis', value: 3 },
+        { label: 'Jane Fonda', value: 4 },
+    ],
+    correct: 1
 }, {
     name: 'tres',
-    label: '3+3',
+    label: '¿Qué cinta obtuvo el Oscar a la mejor película en 1984?',
     answers: [
-        { label: 'diez', value: 10 },
-        { label: 'cinco', value: 5 },
-        { label: 'seis', value: 6 },
-        { label: 'siete', value: 7 },
+        { label: 'En un lugar del corazon', value: 1 },
+        { label: 'Pasaje a la India', value: 2 },
+        { label: 'Amadeus', value: 3 },
+        { label: 'Los gritos del silencio', value: 4 },
     ],
-    correct: 6
+    correct: 3
 }, {
     name: 'cuatro',
-    label: '4+4',
+    label: '¿Qué hombre acumula más nominaciones a los Oscar como mejor actor?',
     answers: [
-        { label: 'ocho', value: 8 },
-        { label: 'cinco', value: 5 },
-        { label: 'seis', value: 6 },
-        { label: 'siete', value: 7 },
+        { label: 'Paul Newman', value: 1 },
+        { label: 'Jack Nicholson', value: 2 },
+        { label: 'Marlon Bradon', value: 3 },
+        { label: 'Robert Redford', value: 4 },
     ],
-    correct: 8
+    correct: 2
 }, {
     name: 'cinco',
-    label: '5+5',
+    label: '¿Qué director acumula más Oscars a la mejor dirección?',
     answers: [
-        { label: 'cuatro', value: 4 },
-        { label: 'diez', value: 10 },
-        { label: 'seis', value: 6 },
-        { label: 'siete', value: 7 },
+        { label: 'John Ford', value: 1 },
+        { label: 'Steven Spielberg', value: 2 },
+        { label: 'Clint Eastwood', value: 3 },
+        { label: 'Tim Burton', value: 4 },
     ],
-    correct: 10
-}, {
-    name: 'seis',
-    label: '6+6',
-    answers: [
-        { label: 'cuatro', value: 4 },
-        { label: 'doce', value: 12 },
-        { label: 'seis', value: 6 },
-        { label: 'siete', value: 7 },
-    ],
-    correct: 12
+    correct: 1
 }]
