@@ -116,11 +116,11 @@ function printQuestion(pregunta, i) { // añadida i
     fieldElement.setAttribute("id", "fieldset")
     formElement.appendChild(fieldElement)
 
-    let legendElement = document.createElement("legend")
-    legendElement.setAttribute("id", "legend")
+    let h3Element = document.createElement("h3")
+    h3Element.setAttribute("id", "question")
     let preguntaContent = document.createTextNode(pregunta.label)
-    legendElement.appendChild(preguntaContent)
-    fieldElement.appendChild(legendElement)
+    h3Element.appendChild(preguntaContent)
+    fieldElement.appendChild(h3Element)
 
     for (let j = 0; j < pregunta.answers.length; j++) {
         let inputElement = document.createElement("input")

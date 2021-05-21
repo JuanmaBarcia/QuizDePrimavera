@@ -118,12 +118,13 @@ function printQuestion(pregunta, i) { // añadida i
     fieldElement.setAttribute("class", `fieldset`)
     formElement.appendChild(fieldElement)
 
-    let legendElement = document.createElement("legend")
-    legendElement.setAttribute("id", `legend${i}`) //se crea una id diferente para cada pregunta
-    legendElement.setAttribute("class", `legend`)
+    let h3Element = document.createElement("h3")
+    h3Element.setAttribute("id", `h3_${i}`) //se crea una id diferente para cada pregunta
+    h3Element.setAttribute("class", `legend`)
     let preguntaContent = document.createTextNode(pregunta.label)
-    legendElement.appendChild(preguntaContent)
-    fieldElement.appendChild(legendElement)
+    h3Element.appendChild(preguntaContent)
+    fieldElement.appendChild(h3Element)
+
 
     for (let j = 0; j < pregunta.answers.length; j++) {
         let inputElement = document.createElement("input")
