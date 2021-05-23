@@ -18,8 +18,11 @@ for (let i = 0; i < ultimosresultados.length; i++) {
     high:10,
     low: 0,
     showArea: false,
-    axisX:{
-        
+    charPadding: {
+      top: 35,
+      right: 15,
+      bottom: 25,
+      left: 5
     },
     axisY: {
       onlyInteger: true,
