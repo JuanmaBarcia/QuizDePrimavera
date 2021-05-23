@@ -1,15 +1,8 @@
-/* switchInput clase de los input*/
-/* switch clase de los labels */
-
-
-
 :root {
     --black: #000;
     --white: #f7fafe ;
     --purple: #6d4bf3;
     --gradient: linear-gradient( to right, rgba(104,75,241),rgb(133, 91, 248))
-
-
 }
 
 *{
@@ -18,13 +11,11 @@
     border:none;
 }
 
-
 body {
     height: 20vh;
     background-color: var(--black);
     font-family:  'Poppins', sans-serif;
     color: var(--black)
-
 }
 
 main {
@@ -35,7 +26,6 @@ main {
     background-image: url(fondo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 h1 {
@@ -60,22 +50,18 @@ h1 {
     opacity: 0;
     position: fixed;
     width: 0;
-
 }
 
-  
-  
 input:checked + label {
     background-image: linear-gradient( to right, rgba(104,75,241),rgb(133, 91, 248));
     color: #f7fafe;
     animation: mymove 1s;
 }
+
 @keyframes mymove {
   100% {transform: rotateX(360deg);}
     }
     
-
-
 label {
     display: block;
     border: 1px;
@@ -89,7 +75,6 @@ label {
     border-color:#6d4bf3;
     background-color:#fff;
     border-radius: 60px;
-
 }
 
 #SendForm {
@@ -107,6 +92,9 @@ label {
 .default {
     border: 1px solid var(--black);
 }
+
+
+
 
 
 
