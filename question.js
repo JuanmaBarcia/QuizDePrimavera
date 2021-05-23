@@ -48,7 +48,7 @@ let iterarPregunta = () => {
 
         printQuestion(questions[contadorPreguntas], contadorPreguntas) // se pinta la pregunta que corresponde a cada iteracion
 
-        //   console.log(questions[contadorPreguntas].correct)
+        // console.log(questions[contadorPreguntas].correct)
 
         comprobarRespuestas(contadorPreguntas) // se llama al comprobador de las respuestas y se le pasa como parametro el indice de la pregunta en la que estamos
 
@@ -119,7 +119,7 @@ function printQuestion(pregunta, i) { // añadida i
 
     let h3Element = document.createElement("h3")
     h3Element.setAttribute("id", "question")
-    let preguntaContent = document.createTextNode(pregunta.label)
+    let preguntaContent = document.createTextNode(htmlEntities(pregunta.label))
     h3Element.appendChild(preguntaContent)
     fieldElement.appendChild(h3Element)
 
@@ -128,14 +128,14 @@ function printQuestion(pregunta, i) { // añadida i
         inputElement.setAttribute("id", `input${j}`)
         inputElement.setAttribute("class", "switchInput")
         inputElement.setAttribute("type", "radio")
-        inputElement.setAttribute("name", pregunta.name) // modificado name para que solo se pueda seleccionar una respuesta
-        inputElement.setAttribute("value", pregunta.answers[j].value) // añadido value para poder hacer la comprobacion de las respuestas correctas
+        inputElement.setAttribute("name", htmlEntities(pregunta.name)) // modificado name para que solo se pueda seleccionar una respuesta
+        inputElement.setAttribute("value", htmlEntities(pregunta.answers[j].value)) // añadido value para poder hacer la comprobacion de las respuestas correctas
         fieldElement.appendChild(inputElement)
 
         let labelElement = document.createElement("label")
         labelElement.setAttribute("class", "switch")
         labelElement.setAttribute("for", `input${j}`) // modificado el for para que coincida con el id del input y se pueda seleccionar la respuesta pinchando en el texto
-        let contenido = document.createTextNode(pregunta.answers[j].label)
+        let contenido = document.createTextNode(htmlEntities(pregunta.answers[j].label))
         labelElement.appendChild(contenido)
         fieldElement.appendChild(labelElement)
 
