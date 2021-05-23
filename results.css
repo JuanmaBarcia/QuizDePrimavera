@@ -5,6 +5,13 @@
     --gradient: linear-gradient( to right, rgba(104,75,241),rgb(133, 91, 248));
 }
 
+#textos{
+    font-family:  'Poppins', sans-serif;
+    color: var(--white);
+    text-decoration: underline;
+    margin-left: 80px;
+}
+
 *{
     font-family:  'Poppins', sans-serif;
     font-size: 22px;
