@@ -14,24 +14,24 @@ let obtenerPreguntasAPI = async() => {
     let res = await datos.json()
     res.results.forEach((element, i) => { // se iteran las preguntas devueltas por el fetch
         let pregunta = {
-                name: `pregunta_${i}`,
-                label: element.question,
-                correct: element.correct_answer
+                name: `preguntaAPI_${i}`,
+                label: element.question.replace(/&quot;/g, '"').replace(/&#039;/g, "'"),
+                correct: element.correct_answer.replace(/&quot;/g, '"').replace(/&#039;/g, "'")
             } //se crea el objeto de la pregunta
 
         let respuestas = []
         element.incorrect_answers.forEach(element => {
                 let respuesta = {
-                    label: element,
-                    value: element
+                    label: element.replace(/&quot;/g, '"').replace(/&#039;/g, "'"),
+                    value: element.replace(/&quot;/g, '"').replace(/&#039;/g, "'")
                 }
                 respuestas.push(respuesta)
             }) // se añaden las respuestas incorrectas a un array
 
         let numRndm = Math.floor(Math.random() * respuestas.length) // se obtiene un numero random entre 0 y el numero de respuestas incorrectas
         respuestas.splice(numRndm, 0, {
-                label: element.correct_answer,
-                value: element.correct_answer
+                label: element.correct_answer.replace(/&quot;/g, '"').replace(/&#039;/g, "'"),
+                value: element.correct_answer.replace(/&quot;/g, '"').replace(/&#039;/g, "'")
             }) // se añade la respuesta correcta en una posicion aleatoria del array respuestas
 
         pregunta.answers = respuestas // se añaden las respuestas al objeto de la pregunta
@@ -121,7 +121,7 @@ function printQuestion(pregunta, i) { // añadida i
     let h3Element = document.createElement("h3")
     h3Element.setAttribute("id", `h3_${i}`) //se crea una id diferente para cada pregunta
     h3Element.setAttribute("class", `legend`)
-    let preguntaContent = document.createTextNode(pregunta.label)
+    let preguntaContent = document.createTextNode(htmlEntities(pregunta.label))
     h3Element.appendChild(preguntaContent)
     fieldElement.appendChild(h3Element)
 
@@ -131,14 +131,14 @@ function printQuestion(pregunta, i) { // añadida i
         inputElement.setAttribute("id", `input${i}${j}`)
         inputElement.setAttribute("class", "switchInput")
         inputElement.setAttribute("type", "radio")
-        inputElement.setAttribute("name", pregunta.name) // modificado name para que solo se pueda seleccionar una respuesta
-        inputElement.setAttribute("value", pregunta.answers[j].value) // añadido value para poder hacer la comprobacion de las respuestas correctas
+        inputElement.setAttribute("name", htmlEntities(pregunta.name)) // modificado name para que solo se pueda seleccionar una respuesta
+        inputElement.setAttribute("value", htmlEntities(pregunta.answers[j].value)) // añadido value para poder hacer la comprobacion de las respuestas correctas
         fieldElement.appendChild(inputElement)
 
         let labelElement = document.createElement("label")
         labelElement.setAttribute("class", "switch")
         labelElement.setAttribute("for", `input${i}${j}`) // modificado el for para que coincida con el id del input y se pueda seleccionar la respuesta pinchando en el texto
-        let contenido = document.createTextNode(pregunta.answers[j].label)
+        let contenido = document.createTextNode(htmlEntities(pregunta.answers[j].label))
         labelElement.appendChild(contenido)
         fieldElement.appendChild(labelElement)
 
