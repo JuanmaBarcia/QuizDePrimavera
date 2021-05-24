@@ -7,11 +7,11 @@ async function createResult(result) {
     let data = await db.collection("results").add(result)
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
+            localStorage.setItem(`idResult`, JSON.stringify(docRef.id))
         })
         .catch((error) => {
             console.error("Error adding document: ", error);
         });
-
     location.href = "results.html"; // se redirige a la pagina de resultados
 }
 
@@ -167,7 +167,6 @@ function printQuestion(pregunta, i) { // añadida i
 }
 
 //fin Victor -----------------------------------------------------
-
 
 // ============================= codigo inicial =============================== //
 
