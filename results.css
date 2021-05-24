@@ -8,8 +8,7 @@
 #textos{
     font-family:  'Poppins', sans-serif;
     color: var(--white);
-    text-decoration: underline;
-    margin-left: 80px;
+    margin-left: 65px;
 }
 
 *{
@@ -32,7 +31,7 @@ div{
 
     background-color: var(--white);
     color: var(--purple);
-    margin: 25px 25px 25px 80px;
+    margin: 0px 0px 0px 80px;
     border: 1px solid;
     width: 200px;
     height: 200px;
@@ -44,8 +43,7 @@ div{
   div > p {
     margin-top: 47px;
     text-align: center;
-    vertical-align: middle;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     font-weight: bold;
     font-size: 75px;
   }
@@ -53,12 +51,10 @@ div{
 h1 {
     font-family:  'Poppins', sans-serif;
     text-align: center;
-    font-size: 36px;
+    font-weight: bold;
+    font-size: 30px;
     color: var(--white);
-    font-weight: 600;
-    margin-top: 100px;
-    margin-bottom: 45px;
-    
+    font-weight: 60;
 }
 
 #boton {
@@ -70,7 +66,7 @@ h1 {
     padding: 20px 20px;
     box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 30%);
     text-align: center;
-    margin-top: 25px;
+    margin-top: 35px;
     margin-left: 24vw;
     width: 50%;
 }
