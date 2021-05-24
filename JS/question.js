@@ -139,8 +139,8 @@ function printQuestion(pregunta, i) { // añadida i
         labelElement.appendChild(contenido)
         fieldElement.appendChild(labelElement)
 
-        let brElement = document.createElement("br")
-        fieldElement.appendChild(brElement)
+        // let brElement = document.createElement("br")
+        // fieldElement.appendChild(brElement)
     }
 
     let submitElement = document.createElement("input")
