@@ -12,7 +12,6 @@
 }
 
 body {
-    height: 20vh;
     background-color: var(--purple);
     font-family: 'Poppins', sans-serif;
     color: var(--black)
@@ -35,6 +34,12 @@ h1 {
     color: black;
     font-weight: 600;
     margin-bottom: 3px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .switchInput {
@@ -85,9 +90,8 @@ label {
     border-radius: 60px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    padding: 10px 15px;
-    margin-right: 0px;
-    margin-left: 25vw;
+    padding: 15px;
+    width: 50vw;
     box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 10%);
 }
 

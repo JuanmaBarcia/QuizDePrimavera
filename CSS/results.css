@@ -18,13 +18,14 @@ body {
     background-size: 125%;
     height: 100%;
     font-family: 'Poppins', sans-serif;
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 div {
     background-color: var(--white);
     color: var(--purple);
-    margin: 25px 25px 25px 80px;
     border: 1px solid;
     width: 200px;
     height: 200px;
@@ -37,10 +38,8 @@ div {
 }
 
 div>p {
-    /* margin-top: 47px; */
     text-align: center;
     vertical-align: middle;
-    /* margin-bottom: 20px; */
     font-weight: bold;
     font-size: 75px;
 }
@@ -50,8 +49,7 @@ h1 {
     font-size: 36px;
     color: var(--white);
     font-weight: 600;
-    margin-top: 40px;
-    margin-bottom: 45px;
+    margin: 40px;
 }
 
 #boton {
@@ -63,14 +61,12 @@ h1 {
     padding: 20px 20px;
     box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 30%);
     text-align: center;
-    margin-top: 25px;
-    margin-left: 24vw;
-    width: 50%;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 #textos {
     font-family: 'Poppins', sans-serif;
     color: var(--white);
     text-decoration: underline;
-    margin-left: 80px;
 }

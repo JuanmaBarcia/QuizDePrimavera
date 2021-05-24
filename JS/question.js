@@ -138,9 +138,6 @@ function printQuestion(pregunta, i) { // añadida i
         let contenido = document.createTextNode(htmlEntities(pregunta.answers[j].label))
         labelElement.appendChild(contenido)
         fieldElement.appendChild(labelElement)
-
-        // let brElement = document.createElement("br")
-        // fieldElement.appendChild(brElement)
     }
 
     let submitElement = document.createElement("input")
