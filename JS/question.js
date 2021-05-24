@@ -166,6 +166,7 @@ function printQuestion(pregunta, i) { // añadida i
     formElement.appendChild(submitElement)
 }
 
+
 //fin Victor -----------------------------------------------------
 
 // ======================= codigo inicial ========================== //
