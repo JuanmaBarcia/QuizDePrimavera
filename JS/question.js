@@ -1,3 +1,4 @@
+import { questions, htmlEntities } from './preguntas.js'
 import { firebaseConfig } from './config.js'
 firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore();
