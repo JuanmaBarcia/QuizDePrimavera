@@ -1,64 +1,55 @@
 :root {
     --black: #000;
-    --white: #f7fafe ;
+    --white: #f7fafe;
     --purple: #6d4bf3;
-    --gradient: linear-gradient( to right, rgba(104,75,241),rgb(133, 91, 248));
+    --gradient: linear-gradient( to right, rgba(104, 75, 241), rgb(133, 91, 248));
 }
 
-#textos{
-    font-family:  'Poppins', sans-serif;
-    color: var(--white);
-    text-decoration: underline;
-    margin-left: 80px;
-}
-
-*{
-    font-family:  'Poppins', sans-serif;
+* {
+    font-family: 'Poppins', sans-serif;
     font-size: 22px;
-    border:none;
+    border: none;
     border-radius: 1rem;
 }
 
-body{
-    background-image: url(fondo_morado.jpg);
+body {
+    background-image: url(/Media/fondo_morado.jpg);
     background-size: contain;
     background-size: 125%;
     height: 100%;
-    font-family:  'Poppins', sans-serif;
-    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-div{
-
+div {
     background-color: var(--white);
     color: var(--purple);
-    margin: 25px 25px 25px 80px;
     border: 1px solid;
     width: 200px;
     height: 200px;
     border-radius: 100px;
     border-color: white;
     box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-  div > p {
-    margin-top: 47px;
+div>p {
     text-align: center;
     vertical-align: middle;
-    margin-bottom: 20px;
     font-weight: bold;
     font-size: 75px;
-  }
+}
 
 h1 {
-    font-family:  'Poppins', sans-serif;
     text-align: center;
     font-size: 36px;
     color: var(--white);
     font-weight: 600;
-    margin-top: 100px;
-    margin-bottom: 45px;
-    
+    margin: 40px;
 }
 
 #boton {
@@ -70,7 +61,12 @@ h1 {
     padding: 20px 20px;
     box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 30%);
     text-align: center;
-    margin-top: 25px;
-    margin-left: 24vw;
-    width: 50%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+#textos {
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    text-decoration: underline;
 }
