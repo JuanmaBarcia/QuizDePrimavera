@@ -2,8 +2,8 @@ import { firebaseConfig } from './config.js'
 firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore();
 
-let arrFecha = []
-let arrAciertos = []
+let fecha = []
+let aciertos = []
 
 async function readResults() {
     let data = await db
@@ -13,26 +13,18 @@ async function readResults() {
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                arrFecha.push(doc.data().fecha)
-                arrAciertos.push(doc.data().aciertos)
+                fecha.push(doc.data().fecha)
+                aciertos.push(doc.data().aciertos)
             });
         });
+    pintarGrafica(fecha, aciertos)
 }
 readResults()
 
-let resultados = JSON.parse(localStorage.getItem("respuestas"))
-let ultimosresultados = resultados.slice(resultados.length - 5, resultados.length)
-
-
-// for (let i = 0; i < ultimosresultados.length; i++) {
-//     fecha.push(ultimosresultados[i].fecha)
-//     aciertos.push(ultimosresultados[i].aciertos)
-// }
-
-let pintarGrafica = (fecha, aciertos) => {
+let pintarGrafica = (arrFecha, arrAciertos) => {
     new Chartist.Line('.ct-chart', {
-        labels: fecha,
-        series: [aciertos],
+        labels: arrFecha.reverse(),
+        series: [arrAciertos.reverse()],
     }, {
         high: 10,
         low: 0,
@@ -49,4 +41,3 @@ let pintarGrafica = (fecha, aciertos) => {
         }
     });
 }
-pintarGrafica(arrFecha, arrAciertos)
