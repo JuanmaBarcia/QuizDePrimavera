@@ -1,3 +1,19 @@
+import { firebaseConfig } from './config.js'
+firebase.initializeApp(firebaseConfig);
+let db = firebase.firestore();
+
+async function createResult(result) {
+    let data = await db.collection("results").add(result)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+
+    location.href = "results.html"; // se redirige a la pagina de resultados
+}
+
 // inicio Juanma -----------------------------------------------------
 
 let contadorRespuestas = 0 // acumulador para obtener el total de respuestas correctas
@@ -63,14 +79,16 @@ let iterarPregunta = () => {
 
         const fechaRespuesta = { // se crea un objeto con la fecha/hora y respuestas acertadas
             fecha: diaHora,
-            aciertos: contadorRespuestas
+            aciertos: contadorRespuestas,
+            numPreguntas: contadorPreguntas
         }
 
-        arrResultados.push(fechaRespuesta) // se añade el objeto al array de resultados
-        localStorage.setItem(`respuestas`, JSON.stringify(arrResultados)) // se actualiza la informacion en el loclStorage
-        localStorage.setItem(`numero de preguntas`, JSON.stringify(contadorPreguntas))
+        createResult(fechaRespuesta)
 
-        location.href = "results.html"; // se redirige a la pagina de resultados
+        // arrResultados.push(fechaRespuesta) // se añade el objeto al array de resultados
+        // localStorage.setItem(`respuestas`, JSON.stringify(arrResultados)) // se actualiza la informacion en el loclStorage
+        // localStorage.setItem(`numero de preguntas`, JSON.stringify(contadorPreguntas))
+
     }
 }
 
