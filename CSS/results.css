@@ -1,28 +1,27 @@
 :root {
     --black: #000;
-    --white: #f7fafe ;
+    --white: #f7fafe;
     --purple: #6d4bf3;
-    --gradient: linear-gradient( to right, rgba(104,75,241),rgb(133, 91, 248));
+    --gradient: linear-gradient( to right, rgba(104, 75, 241), rgb(133, 91, 248));
 }
 
-*{
-    font-family:  'Poppins', sans-serif;
+* {
+    font-family: 'Poppins', sans-serif;
     font-size: 22px;
-    border:none;
+    border: none;
     border-radius: 1rem;
 }
 
-body{
+body {
     background-image: url(/Media/fondo_morado.jpg);
     background-size: contain;
     background-size: 125%;
     height: 100%;
-    font-family:  'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 50px;
 }
 
-div{
-
+div {
     background-color: var(--white);
     color: var(--purple);
     margin: 25px 25px 25px 80px;
@@ -32,26 +31,27 @@ div{
     border-radius: 100px;
     border-color: white;
     box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-  div > p {
-    margin-top: 47px;
+div>p {
+    /* margin-top: 47px; */
     text-align: center;
     vertical-align: middle;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     font-weight: bold;
     font-size: 75px;
-  }
+}
 
 h1 {
-    
     text-align: center;
     font-size: 36px;
     color: var(--white);
     font-weight: 600;
     margin-top: 100px;
     margin-bottom: 45px;
-    
 }
 
 #boton {
@@ -68,8 +68,8 @@ h1 {
     width: 50%;
 }
 
-#textos{
-    font-family:  'Poppins', sans-serif;
+#textos {
+    font-family: 'Poppins', sans-serif;
     color: var(--white);
     text-decoration: underline;
     margin-left: 80px;
