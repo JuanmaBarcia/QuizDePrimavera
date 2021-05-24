@@ -123,3 +123,5 @@ function htmlEntities(str) {
         .replace(/&quot;/g, '"')
         .replace(/&#039;/g, "'");
 }
+
+export { questions, htmlEntities }
