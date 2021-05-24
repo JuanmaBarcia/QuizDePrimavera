@@ -1,0 +1,72 @@
+:root {
+    --black: #000;
+    --white: #f7fafe;
+    --purple: #6d4bf3;
+    --gradient: linear-gradient( to right, rgba(104, 75, 241), rgb(133, 91, 248));
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    border: none;
+    border-radius: 1rem;
+}
+
+body {
+    background-image: url(/Media/fondo_morado.jpg);
+    background-size: contain;
+    background-size: 125%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div {
+    background-color: var(--white);
+    color: var(--purple);
+    border: 1px solid;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border-color: white;
+    box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div>p {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 75px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--white);
+    font-weight: 600;
+    margin: 40px;
+}
+
+#boton {
+    background-image: var(--white);
+    color: var(--gradient);
+    border-radius: 60px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    padding: 20px 20px;
+    box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 30%);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+#textos {
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    text-decoration: underline;
+}
