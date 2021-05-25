@@ -23,6 +23,7 @@ readResults()
 
 let pintarGrafica = (arrFecha, arrAciertos) => {
     new Chartist.Line('.ct-chart', {
+
         labels: arrFecha.reverse(),
         series: [arrAciertos.reverse()],
     }, {
@@ -41,3 +42,4 @@ let pintarGrafica = (arrFecha, arrAciertos) => {
         }
     });
 }
+
