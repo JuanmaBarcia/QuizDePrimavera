@@ -24,6 +24,7 @@ for (let i = 0; i < ultimosresultados.length; i++) {
       bottom: 25,
       left: 5
     },
+    lineSmooth: false,
     axisY: {
       onlyInteger: true,
       
