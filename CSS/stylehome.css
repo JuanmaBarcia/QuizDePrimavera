@@ -40,7 +40,7 @@ span.ct-label.ct-horizontal.ct-end, span.ct-label.ct-vertical.ct-start {
 
 .ct-chart {
     background-color: var(--white);
-    margin: 35px 20px;
+    margin: 35px 5px;
     width: auto;
 }
 

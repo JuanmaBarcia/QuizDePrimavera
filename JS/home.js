@@ -39,7 +39,28 @@ let pintarGrafica = (arrFecha, arrAciertos) => {
         axisY: {
             onlyInteger: true,
 
-        }
+        },
+        plugins: [
+            Chartist.plugins.ctAxisTitle({
+              axisX: {
+                axisTitle: "Fecha",
+                axisClass: "ct-axis-title",
+                offset: {
+                  x: 0,
+                  y: 50
+                },
+                textAnchor: "middle"
+              },
+              axisY: {
+                axisTitle: "Aciertos",
+                axisClass: "ct-axis-title",
+                offset: {
+                  x: 0,
+                  y: -1
+                },
+                flipTitle: false
+              }
+            })
+          ]
     });
 }
-
